@@ -14,7 +14,7 @@ RUN wget -q ftp://tug.org/historic/systems/texlive/2017/install-tl-unx.tar.gz\
  && /usr/local/texlive/2017/bin/x86_64-linux/tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
 ENV PATH /usr/local/texlive/2017/bin/x86_64-linux:$PATH
 
-RUN tlmgr install collection-latexrecommended texlive-fonts-recommended setspace epigraph xcolor enumitem xkeyval csquotes etoolbox titlesec biblatex lato logreq biblatex-philosophy crimson latexmk biber fontaxes mweights slantsc babel-portuges xstring
+RUN tlmgr install collection-latexrecommended collection-fontsrecommended setspace epigraph xcolor enumitem xkeyval csquotes etoolbox titlesec biblatex lato logreq biblatex-philosophy crimson latexmk biber fontaxes mweights slantsc babel-portuges xstring
 
 # Export the output data
 WORKDIR /data
