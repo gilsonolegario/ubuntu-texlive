@@ -1,4 +1,6 @@
 FROM ubuntu:artful
+ENV DEBIAN_FRONTEND noninteractive
+
 
 RUN apt-get update\
  && apt-get install --no-install-recommends -y wget perl perl-modules xz-utils fontconfig\
@@ -13,3 +15,7 @@ RUN wget -q ftp://tug.org/historic/systems/texlive/2017/install-tl-unx.tar.gz\
 ENV PATH /usr/local/texlive/2017/bin/x86_64-linux:$PATH
 
 RUN tlmgr install collection-latexrecommended setspace epigraph xcolor enumitem xkeyval csquotes etoolbox titlesec biblatex lato logreq biblatex-philosophy crimson latexmk biber fontaxes mweights slantsc babel-portuges xstring
+
+# Export the output data
+WORKDIR /data
+VOLUME ["/data"]
